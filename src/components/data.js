@@ -6,7 +6,7 @@ export default {
     theCodeUnit:'https://www.thecodeunit.org.ng/',
     map:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3922.3968971260983!2d7.4179854744403535!3d10.54808216336531!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x11b2cab915555555%3A0x527e356ddd2b916e!2sKaduna%20State%20Schools%20Quality%20Assurance%20Authority!5e0!3m2!1sen!2sng!4v1718887015860!5m2!1sen!2sng",
     organization: {
-      name: "Kaduna State Quality Assurence",
+      name: "Kaduna State Schools Quality Assurance Authority",
       website: {
         icon: "ri-globe-line",
         text: "To be a model in the provision of quality and inclusive education in Nigeria.",

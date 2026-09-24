@@ -98,7 +98,6 @@ import data from "../data";
               rel="noopener noreferrer"
               class="text-success small"
             >
-              Powered by theCodeUnit Soft Technologies
             </a>
         
       </BRow>

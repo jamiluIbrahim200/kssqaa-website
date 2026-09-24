@@ -26,7 +26,7 @@ The official public-facing web platform for the Kaduna State Schools Quality Ass
 
 ## Interface Previews
 
-| Official Homepage & Hero | Quality Assurance |
+| Official Homepage & Hero | Quality Assurance Department |
 |---|---|
 | ![Homepage](./src/assets/images/h.png) | ![Standards](./src/assets/images/q.png) |
 ---

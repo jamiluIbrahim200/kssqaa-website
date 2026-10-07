@@ -22,5 +22,13 @@ export default [
       title:"EXAMINER"
     },
     component: () => import("@/components/examiner.vue"),
+  },
+  {
+    path:"/kssqaa-erp-policy",
+    name:"erp-policy",
+    meta:{
+      title:"ERP POLICY"
+    },
+    component: () => import("@/components/erp-policy.vue"),
   }
 ];

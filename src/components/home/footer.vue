@@ -17,10 +17,10 @@ import data from "../data";
               height="60"
               class="rounded"
             />
-            <p class="fs-6 mb-0 fw-semibold ms-2 text-white">
-              <span class="mb-2">KSSQAA</span><br />
-              {{ data?.generalData?.organization?.name }}
-            </p>
+            <div class="fs-6 mb-0 fw-semibold ms-2 text-white">
+              <h5 class="mb-1 text-white">KSSQAA</h5>
+              <span class="text-white " style="font-size: smaller;">{{ data?.generalData?.organization?.name }}</span>
+            </div>
           </div>
           <div class="d-flex align-items-center">
             <!-- <i

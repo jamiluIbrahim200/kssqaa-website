@@ -3,47 +3,62 @@ import Layout from "@/components/home/layout.vue";
 import Header from "./carousel.vue";
 import About from "./about.vue";
 import CoreValues from "./coreValues.vue";
-import { Autoplay, Pagination } from "swiper/modules";
 import NewsCard from "./newsCard.vue";
+
+import { BModal, BButton } from "bootstrap-vue-next";
+
+import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
 import "swiper/css/pagination";
 
 export default {
-  data() {
-    return {
-      Autoplay,
-      Pagination,
-    };
-  },
   components: {
     Header,
     About,
     CoreValues,
     NewsCard,
     Layout,
+    BModal,
+    BButton,
   },
+
+  data() {
+    return {
+      Autoplay,
+      Pagination,
+      modalShow2: false,
+      modalTimer: null,
+    };
+  },
+
   methods: {
     topFunction() {
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
     },
+
     scrollToSection(sectionId) {
       const element = document.getElementById(sectionId);
+
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
       }
     },
   },
-  unmounted() {
-    window.removeEventListener("scroll", this.setActiveSection);
-  },
+
   mounted() {
+    // Show the Certificate Portal modal after 3 seconds.
+    this.modalTimer = setTimeout(() => {
+      this.modalShow2 = true;
+    }, 3000);
+
     window.addEventListener("scroll", this.setActiveSection);
+
+    // Back-to-top button
     let backtoTop = document.getElementById("back-to-top");
 
     if (backtoTop) {
-      backtoTop = document.getElementById("back-to-top");
       window.onscroll = function () {
         if (
           document.body.scrollTop > 100 ||
@@ -56,9 +71,10 @@ export default {
       };
     }
 
-    window.addEventListener("scroll", function (ev) {
-      ev.preventDefault();
-      var navbar = document.getElementById("navbar");
+    // Sticky navbar
+    window.addEventListener("scroll", function () {
+      const navbar = document.getElementById("navbar");
+
       if (navbar) {
         if (
           document.body.scrollTop >= 50 ||
@@ -71,34 +87,35 @@ export default {
       }
     });
 
-    // filter btn
-    var filterBtns = document.querySelectorAll(".filter-btns .nav-link");
-    var productItems = document.querySelectorAll(".product-item");
+    // Filter buttons
+    const filterBtns = document.querySelectorAll(
+      ".filter-btns .nav-link"
+    );
+    const productItems = document.querySelectorAll(".product-item");
 
-    filterBtns.forEach(function (button) {
-      button.addEventListener("click", function (e) {
+    filterBtns.forEach((button) => {
+      button.addEventListener("click", (e) => {
         e.preventDefault();
 
-        for (var i = 0; i < filterBtns.length; i++) {
-          filterBtns[i].classList.remove("active");
-        }
-        this.classList.add("active");
+        filterBtns.forEach((btn) => btn.classList.remove("active"));
+        button.classList.add("active");
 
-        var filter = e.target.dataset.filter;
+        const filter = e.currentTarget.dataset.filter;
 
-        productItems.forEach(function (item) {
-          if (filter === "all") {
+        productItems.forEach((item) => {
+          if (filter === "all" || item.classList.contains(filter)) {
             item.style.display = "block";
           } else {
-            if (item.classList.contains(filter)) {
-              item.style.display = "block";
-            } else {
-              item.style.display = "none";
-            }
+            item.style.display = "none";
           }
         });
       });
     });
+  },
+
+  unmounted() {
+    window.removeEventListener("scroll", this.setActiveSection);
+    clearTimeout(this.modalTimer);
   },
 };
 </script>
@@ -109,8 +126,28 @@ export default {
       <Header />
       <About />
       <CoreValues />
-      <NewsCard /> 
+      <NewsCard />
     </div>
+    <BModal v-model="modalShow2" centered hide-footer title="Certificate Portal" class="v-modal-custom">
+      <p>
+        Welcome to the KSSQAA Certificate Portal. Please select an option below
+        to check certificate availability or view the approved certificate
+        collection schedule for your school.
+      </p>
+
+      <div class="d-flex justify-content-end gap-2">
+        <BButton variant="outline-primary" to="/certificate">
+          Availability
+        </BButton>
+
+        <BButton variant="primary" to="/schedule">
+          Schedule
+        </BButton>
+      </div>
+    </BModal>
   </Layout>
 </template>
-<style></style>
+
+<style scoped>
+/* Add modal-specific styling here if needed. */
+</style>

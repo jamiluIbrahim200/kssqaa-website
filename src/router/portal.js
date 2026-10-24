@@ -1,3 +1,4 @@
+
 export default [
   {
     path: "/dg",
@@ -8,27 +9,43 @@ export default [
     component: () => import("@/components/dg.vue"),
   },
   {
-    path:"/portal",
-    name:"portal",
-    meta:{
-      title:"Portal"
+    path: "/portal",
+    name: "portal",
+    meta: {
+      title: "Portal",
     },
     component: () => import("@/components/portals.vue"),
   },
   {
-    path:"/examiner-policy",
-    name:"examiner",
-    meta:{
-      title:"EXAMINER"
+    path: "/examiner-policy",
+    name: "examiner",
+    meta: {
+      title: "EXAMINER",
     },
     component: () => import("@/components/examiner.vue"),
   },
   {
-    path:"/kssqaa-erp-policy",
-    name:"erp-policy",
-    meta:{
-      title:"ERP POLICY"
+    path: "/kssqaa-erp-policy",
+    name: "erp-policy",
+    meta: {
+      title: "ERP POLICY",
     },
     component: () => import("@/components/erp-policy.vue"),
-  }
+  },
+  {
+    path: "/certificate",
+    name: "certificate",
+    meta: {
+      title: "Certificate Tracking",
+    },
+    component: () => import("@/components/certificate.vue"),
+  },
+  {
+    path: "/schedule",
+    name: "schedule",
+    meta: {
+      title: "Certificate schedule",
+    },
+    component: () => import("@/components/schedule.vue"),
+  },
 ];

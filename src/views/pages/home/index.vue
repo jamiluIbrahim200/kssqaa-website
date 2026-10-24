@@ -51,7 +51,7 @@ export default {
     // Show the Certificate Portal modal after 3 seconds.
     this.modalTimer = setTimeout(() => {
       this.modalShow2 = true;
-    }, 3000);
+    }, 2000);
 
     window.addEventListener("scroll", this.setActiveSection);
 
@@ -129,8 +129,8 @@ export default {
       <NewsCard />
     </div>
     <BModal v-model="modalShow2" centered hide-footer title="Certificate Portal" class="v-modal-custom">
-      <p>
-        Welcome to the KSSQAA Certificate Portal. Please select an option below
+      <p class="" style="line-height: 2rem;">
+        Please select an option below
         to check certificate availability or view the approved certificate
         collection schedule for your school.
       </p>

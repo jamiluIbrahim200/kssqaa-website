@@ -128,18 +128,16 @@ export default {
       <CoreValues />
       <NewsCard />
     </div>
-    <BModal v-model="modalShow2" centered hide-footer title="Certificate Portal" class="v-modal-custom">
+    <BModal v-model="modalShow2" centered hide-footer title="Certificate Availability & Collection Schedule" class="v-modal-custom">
       <p class="" style="line-height: 2rem;">
         Please select an option below
         to check certificate availability or view the approved certificate
         collection schedule for your school.
       </p>
-
       <div class="d-flex justify-content-end gap-2">
         <BButton variant="outline-primary" to="/certificate">
           Availability
         </BButton>
-
         <BButton variant="primary" to="/schedule">
           Schedule
         </BButton>

@@ -12,7 +12,7 @@ defineProps({
     <article class="certificate-schedule-card h-100">
         <div class="schedule-card-header d-flex align-items-center justify-content-between">
             <span class="schedule-group-label">
-                Collection Group
+               Schedule 
             </span>
             <div class="avatar-xs img-thumbnail rounded-circle flex-shrink-0">
                 <div>
